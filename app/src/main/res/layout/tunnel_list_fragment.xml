@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -69,37 +70,83 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center_horizontal"
             android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:orientation="vertical"
             android:visibility="invisible"
             app:layout_anchor="@id/create_menu"
             app:layout_anchorGravity="top|center_horizontal"
-            app:layout_behavior="com.wireguard.android.widget.fab.EmitExpandableTransformationBehavior">
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/create_from_file"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{fragment::onRequestImportConfig}"
-                android:layout_marginBottom="@dimen/fab_margin"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_action_open_white" />
+            app:layout_behavior="com.wireguard.android.widget.fab.EmitExpandableTransformationBehavior"
+            tools:visibility="visible">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/create_from_qrcode"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{fragment::onRequestScanQRCode}"
-                android:layout_marginBottom="@dimen/fab_margin"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_action_scan_qr_code_white" />
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/fab_margin">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_from_file"
+                    android:textColor="@color/fab_label_text_color"
+                    android:background="@drawable/fab_label_background"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/create_from_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{fragment::onRequestImportConfig}"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_action_open_white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/create_empty"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{fragment::onRequestCreateConfig}"
-                android:layout_marginBottom="@dimen/fab_margin"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_action_edit_white" />
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/fab_margin">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_from_qr_code"
+                    android:textColor="@color/fab_label_text_color"
+                    android:background="@drawable/fab_label_background"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/create_from_qrcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{fragment::onRequestScanQRCode}"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_action_scan_qr_code_white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/fab_margin">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_from_file"
+                    android:textColor="@color/fab_label_text_color"
+                    android:background="@drawable/fab_label_background"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/create_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{fragment::onRequestCreateConfig}"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_action_edit_white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
